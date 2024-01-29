@@ -35,12 +35,16 @@ public class AppStack : Stack
     ));
 
     var policy = new Policy(this, "MyPolicy");
-    policy.AddStatements(new PolicyStatement(new PolicyStatementProps
+
+    var policyStatement = new PolicyStatement
     {
       Effect = Effect.ALLOW,
-      Actions = new string[] { "dynamodb:DescribeStream" },
-      Resources = new string[] { applicationTable.TableStreamArn }
-    }));
+    };
+
+    policyStatement.AddActions("dynamodb:DescribeStream");
+    policyStatement.AddResources(applicationTable.TableStreamArn!);
+
+    policy.AddStatements(policyStatement);
 
     scheduleEventNotificationsFunction.Role!.AttachInlinePolicy(policy);
 
