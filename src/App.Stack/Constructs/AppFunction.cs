@@ -7,7 +7,7 @@ namespace AppStack.Constructs;
 
 public class AppFunction : Function
 {
-  public AppFunction(Construct scope, string id, AppFunction.Props props)
+  public AppFunction(Construct scope, string id, Props props)
     : base(scope, $"{id}Function", new FunctionProps
     {
       Runtime = Runtime.PROVIDED_AL2023,
