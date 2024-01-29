@@ -1,5 +1,6 @@
 ﻿using Amazon.CDK;
 using Amazon.CDK.AWS.DynamoDB;
+using Amazon.CDK.AWS.IAM;
 using Amazon.CDK.AWS.Lambda;
 using Amazon.CDK.AWS.Lambda.EventSources;
 using AppStack.Constructs;
@@ -15,8 +16,11 @@ public class AppStack : Stack
     : base(scope, id, props)
   {
     // DynamoDB
-    var applicationTable = Table.FromTableArn(
-      this, "ApplicationTable", $"arn:aws:dynamodb:{Region}:{Account}:table/{TableName}");
+    var applicationTable = Table.FromTableAttributes(this, "ApplicationTable", new TableAttributes
+    {
+      TableArn = $"arn:aws:dynamodb:{Region}:{Account}:table/{TableName}",
+      GrantIndexPermissions = true,
+    });
 
     // Event Functions
     HandleEventFunctions(applicationTable);
@@ -29,6 +33,16 @@ public class AppStack : Stack
       "ScheduleEventNotifications::App.Events.ScheduleEventNotifications.Function::Handler",
       TableName
     ));
+
+    var policy = new Policy(this, "MyPolicy");
+    policy.AddStatements(new PolicyStatement(new PolicyStatementProps
+    {
+        Effect = Effect.ALLOW,
+        Actions = new string[] { "dynamodb:DescribeStream" },
+        Resources = new string[] { applicationTable.TableStreamArn }
+    }));
+
+    scheduleEventNotificationsFunction.Role!.AttachInlinePolicy(policy);
 
     scheduleEventNotificationsFunction.AddEventSource(new DynamoEventSource(applicationTable, new DynamoEventSourceProps
     {
