@@ -34,20 +34,6 @@ public class AppStack : Stack
       TableName
     ));
 
-    var policy = new Policy(this, "MyPolicy");
-
-    var policyStatement = new PolicyStatement
-    {
-      Effect = Effect.ALLOW,
-    };
-
-    policyStatement.AddActions("dynamodb:DescribeStream");
-    policyStatement.AddResources(applicationTable.TableStreamArn!);
-
-    policy.AddStatements(policyStatement);
-
-    scheduleEventNotificationsFunction.Role!.AttachInlinePolicy(policy);
-
     scheduleEventNotificationsFunction.AddEventSource(new DynamoEventSource(applicationTable, new DynamoEventSourceProps
     {
       StartingPosition = StartingPosition.TRIM_HORIZON,
@@ -55,6 +41,17 @@ public class AppStack : Stack
       BatchSize = 10,
       MaxBatchingWindow = Duration.Minutes(5),
       RetryAttempts = 3,
+    }));
+    scheduleEventNotificationsFunction.AddToRolePolicy(new PolicyStatement(new PolicyStatementProps
+    {
+      Effect = Effect.ALLOW,
+      Actions = new[] {
+        "dynamodb:DescribeStream",
+        "dynamodb:GetRecords",
+        "dynamodb:GetShardIterator",
+        "dynamodb:ListStreams",
+      },
+      Resources = new[] { "arn:aws:dynamodb:eu-north-1:519157272275:table/what-did-i-do/stream/2024-01-28T19:57:27.460" },
     }));
   }
 }
