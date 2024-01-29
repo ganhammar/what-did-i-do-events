@@ -15,11 +15,8 @@ public class AppStack : Stack
     : base(scope, id, props)
   {
     // DynamoDB
-    var applicationTable = Table.FromTableAttributes(this, "ApplicationTable", new TableAttributes
-    {
-      TableArn = $"arn:aws:dynamodb:{Region}:{Account}:table/{TableName}",
-      GrantIndexPermissions = true,
-    });
+    var applicationTable = Table.FromTableArn(
+      this, "ApplicationTable", $"arn:aws:dynamodb:{Region}:{Account}:table/{TableName}");
 
     // Event Functions
     HandleEventFunctions(applicationTable);
