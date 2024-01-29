@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>$(TargetFramework)</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <OutputType>Library</OutputType>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <AWSProjectType>Lambda</AWSProjectType>
+    <EventSourceSupport>false</EventSourceSupport>
+    <UseSystemResourceKeys>true</UseSystemResourceKeys>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <StripSymbols>true</StripSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Amazon.Lambda.Core" Version="$(AmazonLambdaCoreVersion)" />
+    <PackageReference Include="Amazon.Lambda.DynamoDBEvents"
+      Version="$(AmazonLambdaDynamoDBEventsVersion)" />
+    <PackageReference Include="Amazon.Lambda.Serialization.SystemTextJson"
+      Version="$(AmazonLambdaSerializationSystemTextJsonVersion)" />
+    <PackageReference Include="AWSSDK.DynamoDBv2" Version="$(AWSSDKDynamoDBv2Version)" />
+    <PackageReference Include="AWSXRayRecorder.Core" Version="$(AWSXRayRecorderCoreVersion)" />
+    <PackageReference Include="AWSXRayRecorder.Handlers.AwsSdk"
+      Version="$(AWSXRayRecorderHandlersAWSSDKVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TrimmerRootAssembly Include="AWSSDK.Core" />
+    <TrimmerRootAssembly Include="AWSXRayRecorder.Core" />
+    <TrimmerRootAssembly Include="AWSXRayRecorder.Handlers.AwsSdk" />
+    <TrimmerRootAssembly Include="Amazon.Lambda.APIGatewayEvents" />
+    <TrimmerRootAssembly Include="bootstrap" />
+    <TrimmerRootAssembly Include="Shared" />
+  </ItemGroup>
+</Project>

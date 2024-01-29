@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C17E97E4-0616-4534-BD3A-21D36B71FC8E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App.Events", "App.Events", "{1DC09CEF-03E7-4E84-A8A1-F44CA546C21C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleEventNotifications", "src\App.Events\ScheduleEventNotifications\ScheduleEventNotifications.csproj", "{44973F31-CD55-4BE2-8EED-2701F7CBAE89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppStack", "src\App.Stack\AppStack.csproj", "{452796DB-2A31-4B5F-8C6D-BC41823D11B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44973F31-CD55-4BE2-8EED-2701F7CBAE89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44973F31-CD55-4BE2-8EED-2701F7CBAE89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44973F31-CD55-4BE2-8EED-2701F7CBAE89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44973F31-CD55-4BE2-8EED-2701F7CBAE89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{452796DB-2A31-4B5F-8C6D-BC41823D11B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{452796DB-2A31-4B5F-8C6D-BC41823D11B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{452796DB-2A31-4B5F-8C6D-BC41823D11B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{452796DB-2A31-4B5F-8C6D-BC41823D11B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1DC09CEF-03E7-4E84-A8A1-F44CA546C21C} = {C17E97E4-0616-4534-BD3A-21D36B71FC8E}
+		{44973F31-CD55-4BE2-8EED-2701F7CBAE89} = {1DC09CEF-03E7-4E84-A8A1-F44CA546C21C}
+		{452796DB-2A31-4B5F-8C6D-BC41823D11B9} = {C17E97E4-0616-4534-BD3A-21D36B71FC8E}
+	EndGlobalSection
+EndGlobal
