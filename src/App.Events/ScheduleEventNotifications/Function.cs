@@ -43,7 +43,7 @@ public class Function
       var client = new AmazonDynamoDBClient();
       var request = new PutItemRequest
       {
-        TableName = Environment.GetEnvironmentVariable("TableName"),
+        TableName = Environment.GetEnvironmentVariable("TABLE_NAME"),
         Item = new()
         {
           { "PartitionKey", new($"NOTIFICATION#{date.ToUniversalTime()}") },
