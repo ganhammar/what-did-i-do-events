@@ -26,7 +26,7 @@ public class AppStack : Stack
       TableName
     ));
 
-    var streamArn = "arn:aws:dynamodb:eu-north-1:519157272275:table/what-did-i-do/stream/2024-01-28T19:57:27.460";
+    var streamArn = Fn.ImportValue("what-did-i-do-domain-stack-ApplicationTableStreamArn");
 
     scheduleEventNotificationsFunction.AddEventSourceMapping("DynamoEventStream", new EventSourceMappingOptions
     {
