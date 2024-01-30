@@ -1,8 +1,6 @@
 ﻿using Amazon.CDK;
-using Amazon.CDK.AWS.DynamoDB;
 using Amazon.CDK.AWS.IAM;
 using Amazon.CDK.AWS.Lambda;
-using Amazon.CDK.AWS.Lambda.EventSources;
 using AppStack.Constructs;
 using Constructs;
 

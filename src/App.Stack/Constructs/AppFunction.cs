@@ -10,8 +10,8 @@ public class AppFunction : Function
   public AppFunction(Construct scope, string id, Props props)
     : base(scope, $"{id}Function", new FunctionProps
     {
-      Runtime = Runtime.PROVIDED_AL2023,
-      Architecture = Architecture.X86_64,
+      Runtime = Runtime.DOTNET_6,
+      Architecture = Architecture.ARM_64,
       Handler = props.Handler,
       Code = Code.FromAsset($"./.output/{id}.zip"),
       Timeout = Duration.Minutes(1),
