@@ -46,5 +46,11 @@ public class AppStack : Stack
       },
       Resources = new[] { streamArn },
     }));
+    scheduleEventNotificationsFunction.AddToRolePolicy(new PolicyStatement(new PolicyStatementProps
+    {
+      Effect = Effect.ALLOW,
+      Actions = new string[] { "dynamodb:PutItem" },
+      Resources = new string[] { $"arn:aws:dynamodb:{Region}:{Account}:table/{TableName}" },
+    }));
   }
 }
