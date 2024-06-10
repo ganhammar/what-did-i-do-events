@@ -6,15 +6,15 @@
 
   <PropertyGroup>
     <AmazonExtensionsConfigurationSystemsManagerVersion>6.0.0</AmazonExtensionsConfigurationSystemsManagerVersion>
-    <AmazonCDKLibVersion>2.124.0</AmazonCDKLibVersion>
+    <AmazonCDKLibVersion>2.145.0</AmazonCDKLibVersion>
     <AmazonLambdaAPIGatewayEventsVersion>2.7.0</AmazonLambdaAPIGatewayEventsVersion>
     <AmazonLambdaCoreVersion>2.2.0</AmazonLambdaCoreVersion>
-    <AmazonLambdaDynamoDBEventsVersion>3.0.0</AmazonLambdaDynamoDBEventsVersion>
+    <AmazonLambdaDynamoDBEventsVersion>3.1.1</AmazonLambdaDynamoDBEventsVersion>
     <AmazonLambdaRuntimeSupportVersion>1.10.0</AmazonLambdaRuntimeSupportVersion>
-    <AmazonLambdaSerializationSystemTextJsonVersion>2.4.0</AmazonLambdaSerializationSystemTextJsonVersion>
+    <AmazonLambdaSerializationSystemTextJsonVersion>2.4.3</AmazonLambdaSerializationSystemTextJsonVersion>
     <AmazonLambdaTestUtilitiesVersion>2.0.0</AmazonLambdaTestUtilitiesVersion>
     <AWSSDKSimpleSystemsManagementVersion>3.7.301.37</AWSSDKSimpleSystemsManagementVersion>
-    <AWSSDKDynamoDBv2Version>3.7.301.2</AWSSDKDynamoDBv2Version>
+    <AWSSDKDynamoDBv2Version>3.7.303.20</AWSSDKDynamoDBv2Version>
     <AWSSDKExtensionsNETCoreSetupVersion>3.7.300</AWSSDKExtensionsNETCoreSetupVersion>
     <AWSXRayRecorderCoreVersion>2.14.0</AWSXRayRecorderCoreVersion>
     <AWSXRayRecorderHandlersAWSSDKVersion>2.12.0</AWSXRayRecorderHandlersAWSSDKVersion>
